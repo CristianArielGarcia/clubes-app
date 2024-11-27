@@ -37,7 +37,7 @@ clubes-app/
 
 Clone the project to your local machine:
 ```bash
-git clone https://github.com/your-username/clubes-app.git
+git clone https://github.com/CristianArielGarcia/clubes-app.git
 cd clubes-app
 ```
 
@@ -45,7 +45,7 @@ cd clubes-app
 
 Build and start the backend and frontend services:
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 
 This will:
