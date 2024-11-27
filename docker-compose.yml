@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    restart: always  
+    build:
+      context: ./backend
+    ports:
+      - "3001:3001"  # Exposing backend port 3000
+    env_file:
+      - ./backend/.env
+    extra_hosts:
+      - "localhost:0.0.0.0" # Ensure localhost maps correctly
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+    ports:
+      - "5001:5001"  # Exposing frontend port 5001
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/src/app
