@@ -40,8 +40,20 @@ Clone the project to your local machine:
 git clone https://github.com/CristianArielGarcia/clubes-app.git
 cd clubes-app
 ```
+### 2. Create the .env Files
+```bash
+cd backend
+cp .env.example .env
+# or manually create the file and add your environment variables
+```
 
-### 2. Start the Application with Docker
+```bash
+cd frontend
+cp .env.example .env
+# or manually create the file and add your environment variables
+```
+
+### 3. Start the Application with Docker
 
 Build and start the backend and frontend services:
 ```bash
@@ -53,7 +65,7 @@ This will:
 - Start the backend on [http://localhost:3000](http://localhost:3000).
 - Start the frontend on [http://localhost:5001](http://localhost:5001).
 
-### 3. Stop the Application
+### 4. Stop the Application
 
 To stop the running containers, use:
 ```bash
