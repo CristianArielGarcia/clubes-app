@@ -40,6 +40,7 @@ Clone the project to your local machine:
 git clone https://github.com/CristianArielGarcia/clubes-app.git
 cd clubes-app
 ```
+
 ### 2. Create the .env Files
 ```bash
 cd backend
