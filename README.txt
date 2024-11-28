@@ -54,6 +54,8 @@ cp .env.example .env
 # or manually create the file and add your environment variables
 ```
 
+Note: Ensure the .env files uses a port that is not already in use on your machine. Remember, the ports on .env.examples are just examples!
+
 ### 3. Start the Application with Docker
 
 Build and start the backend and frontend services:
