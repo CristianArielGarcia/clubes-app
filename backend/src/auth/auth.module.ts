@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { PassportModule } from '@nestjs/passport';
 import { SupabaseAuthStrategy } from 'src/passport-supabase.strategy';
 
 @Module({
-  // imports: [PassportModule.register({ defaultStrategy: 'supabase-auth' }), ConfigModule],
-  imports: [ConfigModule],
+  imports: [
+    PassportModule.register({ defaultStrategy: 'supabase-auth' }),
+    ConfigModule,
+  ],
+  //imports: [ConfigModule],
   providers: [
     {
       provide: SupabaseAuthStrategy,
@@ -12,7 +16,6 @@ import { SupabaseAuthStrategy } from 'src/passport-supabase.strategy';
         return new SupabaseAuthStrategy({
           supabaseUrl: configService.get<string>('SUPABASE_URL'),
           supabaseKey: configService.get<string>('SUPABASE_KEY'),
-          extractor: (req) => req.headers.authorization?.split(' ')[1],
           supabaseOptions: {},
         });
       },

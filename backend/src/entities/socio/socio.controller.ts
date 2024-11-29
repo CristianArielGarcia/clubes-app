@@ -1,14 +1,25 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+  UseGuards,
+} from '@nestjs/common';
 import { SocioService } from './socio.service';
 import { CreateSocioDto, UpdateSocioDto } from './socio.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('socios')
 export class SocioController {
   constructor(private readonly socioService: SocioService) {}
 
   @Get()
-  // @UseGuards(AuthGuard('supabase-auth'))
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('supabase-auth'))
   findAll() {
     return this.socioService.findAll();
   }
