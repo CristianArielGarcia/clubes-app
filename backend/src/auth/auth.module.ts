@@ -6,12 +6,12 @@ import { AuthController } from './auth.controller';
 @Module({
   imports: [
     JwtModule.register({
-      secret: process.env.SUPABASE_JWT_SECRET, 
-      signOptions: { expiresIn: '1h' }, 
+      secret: process.env.SUPABASE_JWT_SECRET,
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   providers: [SupabaseAuthGuard],
-  exports: [SupabaseAuthGuard], 
-  controllers : [AuthController]
+  exports: [SupabaseAuthGuard],
+  controllers: [AuthController],
 })
 export class AuthModule {}

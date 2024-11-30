@@ -1,4 +1,12 @@
-import { IsString, IsOptional, IsEmail, IsBoolean, IsDate, IsNotEmpty, Length } from 'class-validator';
+import {
+  IsString,
+  IsOptional,
+  IsEmail,
+  IsBoolean,
+  IsDate,
+  IsNotEmpty,
+  Length,
+} from 'class-validator';
 
 export class CreateSocioDto {
   @IsOptional()

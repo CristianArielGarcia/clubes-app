@@ -6,9 +6,9 @@ import { SocioController } from './socio.controller';
 import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Socio]), SupabaseAuthGuard],
+  imports: [TypeOrmModule.forFeature([Socio])],
   controllers: [SocioController],
-  providers: [SocioService],
+  providers: [SocioService, SupabaseAuthGuard],
   exports: [SocioService],
 })
 export class SocioModule {}
