@@ -1,27 +1,17 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { PassportModule } from '@nestjs/passport';
-import { SupabaseAuthStrategy } from 'src/passport-supabase.strategy';
+import { JwtModule } from '@nestjs/jwt';
+import { SupabaseAuthGuard } from './SupabaseAuthGuard';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
-    PassportModule.register({ defaultStrategy: 'supabase-auth' }),
-    ConfigModule,
+    JwtModule.register({
+      secret: process.env.SUPABASE_JWT_SECRET, 
+      signOptions: { expiresIn: '1h' }, 
+    }),
   ],
-  //imports: [ConfigModule],
-  providers: [
-    {
-      provide: SupabaseAuthStrategy,
-      useFactory: (configService: ConfigService) => {
-        return new SupabaseAuthStrategy({
-          supabaseUrl: configService.get<string>('SUPABASE_URL'),
-          supabaseKey: configService.get<string>('SUPABASE_KEY'),
-          supabaseOptions: {},
-        });
-      },
-      inject: [ConfigService],
-    },
-  ],
-  exports: [],
+  providers: [SupabaseAuthGuard],
+  exports: [SupabaseAuthGuard], 
+  controllers : [AuthController]
 })
 export class AuthModule {}

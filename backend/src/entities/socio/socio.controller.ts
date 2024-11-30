@@ -11,15 +11,17 @@ import {
 import { SocioService } from './socio.service';
 import { CreateSocioDto, UpdateSocioDto } from './socio.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
 
 @Controller('socios')
+@ApiTags('Socio')
 export class SocioController {
   constructor(private readonly socioService: SocioService) {}
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard('supabase-auth'))
+  @ApiBearerAuth('access-token')
+  @UseGuards(SupabaseAuthGuard)
   findAll() {
     return this.socioService.findAll();
   }

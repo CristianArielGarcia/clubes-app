@@ -1,3 +1,0 @@
-const SUPABASE_AUTH = 'SUPABASE_AUTH';
-
-export { SUPABASE_AUTH };

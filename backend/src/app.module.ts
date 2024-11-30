@@ -9,12 +9,16 @@ import { PassportModule } from '@nestjs/passport';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    PassportModule.register({ defaultStrategy: 'jwt' }),
+    PassportModule.register({ defaultStrategy: 'supabase-auth' }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        url: configService.get<string>('SUPABASE_URL'),
+        host: 'aws-0-us-east-1.pooler.supabase.com',
+        database: 'postgres',
+        port: 6543,
+        username: 'postgres.dozmmkcizzatqotxfzop',
+        password: process.env.SUPABASE_PASSWORD,
         synchronize: true, // Solo para desarrollo
         autoLoadEntities: true,
       }),
