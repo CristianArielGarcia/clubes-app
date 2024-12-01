@@ -3,8 +3,8 @@ import {
   ExecutionContext,
   UnauthorizedException,
 } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { createClient } from '@supabase/supabase-js';
+import * as jwtService from 'jsonwebtoken';
+import { createClient  } from '@supabase/supabase-js';
 
 export class SupabaseAuthGuard implements CanActivate {
   private supabase = createClient(
@@ -12,7 +12,7 @@ export class SupabaseAuthGuard implements CanActivate {
     process.env.SUPABASE_ANON_KEY,
   );
 
-  constructor(private readonly jwtService: JwtService) {}
+  constructor() {}
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
     const authHeader = request.headers.authorization;
@@ -23,14 +23,10 @@ export class SupabaseAuthGuard implements CanActivate {
       );
     }
 
-    console.log(process.env.SUPABASE_JWT_SECRET);
     const token = authHeader.split(' ')[1];
 
     try {
-      const payload = await this.jwtService.verifyAsync(token, {
-        secret: process.env.SUPABASE_JWT_SECRET,
-        algorithms: ['HS256'],
-      });
+      const payload = jwtService.verify(token, process.env.SUPABASE_JWT_SECRET);
       request.user = payload;
       return true;
     } catch (error) {
