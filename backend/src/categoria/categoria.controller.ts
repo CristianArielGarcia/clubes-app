@@ -16,7 +16,7 @@ import {
   ApiOperation,
   ApiParam,
 } from '@nestjs/swagger';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 import { CreateCategoriaDto, UpdateCategoriaDto } from './categoria.dto';
 
 @Controller('categorias')

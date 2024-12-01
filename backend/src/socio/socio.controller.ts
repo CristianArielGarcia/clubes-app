@@ -11,7 +11,7 @@ import {
 import { SocioService } from './socio.service';
 import { CreateSocioDto, UpdateSocioDto } from './socio.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Controller('socios')
 @ApiTags('Socio')

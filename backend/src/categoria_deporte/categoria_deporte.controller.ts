@@ -20,7 +20,7 @@ import {
   ApiOperation,
   ApiParam,
 } from '@nestjs/swagger';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Controller('categoria-deportes')
 @ApiTags('CategoriaDeporte')

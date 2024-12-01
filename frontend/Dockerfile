@@ -20,4 +20,4 @@ COPY .env .env
 EXPOSE 5001
 
 # Run the frontend
-CMD ["yarn", "dev"]
+CMD ["yarn", "dev", "--host"]

@@ -4,7 +4,7 @@ import { ComprobanteItemService } from './comprobante_item.service';
 import { ComprobanteItemController } from './comprobante_item.controller';
 import { ComprobanteItem } from './comprobante_item.entity';
 import { Comprobante } from '../comprobante/comprobante.entity';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Module({
   imports: [

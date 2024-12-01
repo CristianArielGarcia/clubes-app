@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DeporteService } from './deporte.service';
 import { DeporteController } from './deporte.controller';
 import { Deporte } from './deporte.entity';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Deporte]), SupabaseAuthGuard],

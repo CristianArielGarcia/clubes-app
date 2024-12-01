@@ -3,11 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TipoItemService } from './tipo_item.service';
 import { TipoItemController } from './tipo_item.controller';
 import { TipoItem } from './tipo_item.entity';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([TipoItem]), SupabaseAuthGuard],
+  imports: [TypeOrmModule.forFeature([TipoItem])],
   controllers: [TipoItemController],
-  providers: [TipoItemService],
+  providers: [TipoItemService, SupabaseAuthGuard],
 })
 export class TipoItemModule {}

@@ -5,7 +5,7 @@ import { ComprobanteController } from './comprobante.controller';
 import { Comprobante } from './comprobante.entity';
 import { TipoComprobante } from '../tipo_comprobante/tipo_comprobante.entity';
 import { Socio } from '../socio/socio.entity';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Module({
   imports: [

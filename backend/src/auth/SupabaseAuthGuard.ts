@@ -4,7 +4,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import * as jwtService from 'jsonwebtoken';
-import { createClient  } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 
 export class SupabaseAuthGuard implements CanActivate {
   private supabase = createClient(

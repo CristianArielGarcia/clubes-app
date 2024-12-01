@@ -3,7 +3,7 @@ import { TipoComprobanteService } from './tipo_comprobante.service';
 import { TipoComprobanteController } from './tipo_comprobante.controller';
 import { TipoComprobante } from './tipo_comprobante.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Module({
   imports: [TypeOrmModule.forFeature([TipoComprobante]), SupabaseAuthGuard],

@@ -20,7 +20,6 @@ export class AuthController {
     },
   })
   @ApiResponse({ status: 401, description: 'Invalid credentials' })
-
   async login(@Body() body: LoginDto) {
     const { email, password } = body;
     const token = await this.supabaseService.login(email, password);

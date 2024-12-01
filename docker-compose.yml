@@ -5,6 +5,9 @@ services:
     restart: always  
     build:
       context: ./backend
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     ports:
       - "3001:3001"  # Exposing backend port 3000
     env_file:
@@ -16,11 +19,12 @@ services:
     restart: always
     build:
       context: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     ports:
       - "5001:5001"  # Exposing frontend port 5001
     env_file:
       - ./frontend/.env
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/usr/src/app

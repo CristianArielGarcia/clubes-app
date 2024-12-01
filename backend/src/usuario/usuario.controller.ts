@@ -11,7 +11,7 @@ import {
 import { UsuarioService } from './usuario.service';
 import { CreateUsuarioDto, UpdateUsuarioDto } from './usuario.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { SupabaseAuthGuard } from 'src/auth/SupabaseAuthGuard';
+import { SupabaseAuthGuard } from '../auth/SupabaseAuthGuard';
 
 @Controller('usuarios')
 @ApiTags('Usuario')
