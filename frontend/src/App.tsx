@@ -2,6 +2,7 @@ import Login from './pages/Login.tsx'
 import Logged from './pages/Logged.tsx'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
+import React from 'react'
 
 /**
  * The root component of the app.
@@ -15,7 +16,7 @@ function App() {
     <div>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/success" element={<Logged />}/>
       </Routes>
     </BrowserRouter>

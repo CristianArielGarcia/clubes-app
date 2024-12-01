@@ -16,25 +16,8 @@ const Login = () => {
     if (event === "SIGNED_IN") {
       navigate("/success");
     }
-    //navigate("/Login");
+    navigate("/login");
   });
-
-  /**
-   * Handles the sign in using Google OAuth.
-   *
-   * @param {React.FormEvent<HTMLFormElement>} e The form event.
-   *
-   * @returns {Promise<void>}
-   */
-  async function googleSignIn(e) {
-    e.preventDefault();
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-    });
-    if (error) {
-      console.error("Error signing in:", error);
-    }
-  }
 
   return (
     <div className="Login">
