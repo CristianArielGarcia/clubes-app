@@ -1,7 +1,7 @@
 import React from "react";
 
-const Logged = () => {
+const IndexPage = () => {
   return <div>Logged</div>;
 };
 
-export default Logged;
+export default IndexPage;
