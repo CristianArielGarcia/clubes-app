@@ -6,12 +6,21 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-    const config = new DocumentBuilder()
+  const config = new DocumentBuilder()
     .setTitle('Club Management API')
     .setDescription('API for Club Management')
     .setVersion('1.0.0')
-    .addBearerAuth({ type: 'apiKey', name: 'Authorization', scheme: 'bearer', bearerFormat: 'JWT' })
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        in: 'header',
+      },
+      'access-token',
+    )
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
@@ -21,7 +30,11 @@ async function bootstrap() {
 
   await app.listen(PORT, '0.0.0.0');
 
-  console.log(`Server listening at http://${HOST}:${PORT}`);
+  app.enableCors({
+    origin: '*', // Or specify your allowed origins
+    allowedHeaders: 'Authorization', // Make sure Authorization header is allowed
+  });
 
+  console.log(`Server listening at http://${HOST}:${PORT}`);
 }
 bootstrap();

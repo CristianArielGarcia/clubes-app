@@ -20,4 +20,4 @@ COPY .env .env
 EXPOSE 3001
 
 # Run the backend
-CMD ["yarn", "start"]
+CMD ["yarn", "start:dev"]
