@@ -12,18 +12,17 @@ const Login = () => {
     if (event === "SIGNED_IN") {
       navigate("/success");
     }
-    navigate("/login");
   });
 
   return (
-    <div className="Login">
+    <>
       <Auth
         supabaseClient={supabase}
         theme="dark"
         providers={["google"]}
-        appearance={{ theme: ThemeSupa }}
+        appearance={{ theme: ThemeSupa, style:{container: {width: "20vw"} } }}
       />
-    </div>
+    </>
   );
 };
 
