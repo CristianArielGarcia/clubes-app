@@ -48,7 +48,7 @@ const menuItems = [
       { text: 'Deportes', icon: <SportsTennisIcon />, path: '/deportes' },
       { text: 'Categorías', icon: <CategoryIcon />, path: '/categorias' },
       { text: 'Tipo gastos', icon: <PaymentsIcon />, path: '/tipoitem' },
-      { text: 'Usuarios', icon: <PeopleIcon />, path: '/usuarios' }
+      { text: 'Usuarios', icon: <PeopleIcon /> }
     ]
   },
   { text: 'Gastos', icon: <AccountBalanceIcon /> },
