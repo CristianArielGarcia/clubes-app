@@ -1,5 +1,5 @@
 import Login from './pages/Login.tsx'
-import IndexPage from './pages/IndexPage.tsx'
+import Dashboard from './pages/Dashboard.tsx'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { SupabaseProvider } from './components/SupabaseContext.tsx'
 import './App.css'
@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route element={<PrivateRoute />}>
-              <Route path="/success" element={<IndexPage />} />
+              <Route path="/success" element={<Dashboard />} />
             </Route>
           </Routes>
         </BrowserRouter>

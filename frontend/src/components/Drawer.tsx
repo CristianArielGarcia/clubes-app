@@ -87,14 +87,6 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<boolean>(false);
-  const openAccount = Boolean(anchorEl);
-  const handleClick = () => {
-    setAnchorEl(!anchorEl);
-  };
-  const handleClose = () => {
-    setAnchorEl(false);
-  };
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -123,7 +115,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Club Los Andes anashe
+            Club Los Andes
           </Typography>
         </Toolbar>
       </AppBar>
